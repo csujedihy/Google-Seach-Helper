@@ -1,0 +1,29 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'Ghelper'
+		'TestBHO.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}
+
+HKLM {
+  NoRemove SOFTWARE {
+    NoRemove Microsoft {   
+      NoRemove Windows {
+        NoRemove CurrentVersion {
+          NoRemove Explorer {
+            NoRemove 'Browser Helper Objects' {
+              ForceRemove '{051FB9EC-79EA-4F8E-9EC2-F1FF4462FB09}' = s 'Ghelper' {
+                val 'NoExplorer' = d '1'
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

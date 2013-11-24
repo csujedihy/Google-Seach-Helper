@@ -1,0 +1,26 @@
+HKCR
+{
+	TestBHO.TestScript.1 = s 'TestScript Class'
+	{
+		CLSID = s '{051FB9EC-79EA-4F8E-9EC2-F1FF4462FB09}'
+	}
+	TestBHO.TestScript = s 'TestScript Class'
+	{
+		CLSID = s '{051FB9EC-79EA-4F8E-9EC2-F1FF4462FB09}'
+		CurVer = s 'TestBHO.TestScript.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {051FB9EC-79EA-4F8E-9EC2-F1FF4462FB09} = s 'TestScript Class'
+		{
+			ProgID = s 'TestBHO.TestScript.1'
+			VersionIndependentProgID = s 'TestBHO.TestScript'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{2D9CE0FA-2040-4A24-807E-0C0BF4E9ECE7}'
+		}
+	}
+}
